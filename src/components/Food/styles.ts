@@ -4,26 +4,6 @@ export const Container = styled.div`
   background: #f0f0f5;
   border-radius: 8px;
 
-  header {
-    background: #ffb84d;
-    border-radius: 8px 8px 0px 0px;
-    height: 192px;
-    overflow: hidden;
-    transition: 0.3s opacity;
-    text-align: center;
-
-    ${props =>
-    !props.available &&
-    css`
-        opacity: 0.3;
-      `};
-
-    img {
-      pointer-events: none;
-      user-select: none;
-    }
-  }
-
   section.body {
     padding: 30px;
 
@@ -141,5 +121,29 @@ export const Container = styled.div`
         }
       }
     }
+  }
+`;
+
+interface HeaderProps {
+  available: boolean;
+}
+
+export const Header = styled.header<HeaderProps>`
+  background: #ffb84d;
+  border-radius: 8px 8px 0px 0px;
+  height: 192px;
+  overflow: hidden;
+  transition: 0.3s opacity;
+  text-align: center;
+
+  ${props =>
+  !props.available &&
+  css`
+      opacity: 0.3;
+    `};
+
+  img {
+    pointer-events: none;
+    user-select: none;
   }
 `;
